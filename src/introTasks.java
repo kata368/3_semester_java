@@ -17,6 +17,10 @@ public class introTasks {
         System.out.println(IntroTaskLeap(400));
         System.out.println(IntroTaskLeap(2020));
 
+        System.out.println(IntroTaskCat(11));
+        System.out.println(IntroTaskCat(103));
+        System.out.println(IntroTaskCat(1));
+
     }
     private static boolean Task3Digits (int x){
         return 99<x && x<1000;
@@ -44,5 +48,14 @@ public class introTasks {
             return year%4==0;
     }
 
+    private static String IntroTaskCat(int numberOfCats){
+        if (numberOfCats%10==1 && numberOfCats%100!=11){
+            return numberOfCats+" кот";
+        }else if (numberOfCats%10==2 || numberOfCats%10==3 || numberOfCats%10==4){
+            return numberOfCats+" кота";
+        }else{
+            return numberOfCats+" котов";
 
+        }
+    }
 }
