@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class introTasks {
     public static void main(String args[]) {
         System.out.println(Task3Digits(50));
@@ -20,6 +21,10 @@ public class introTasks {
         System.out.println(IntroTaskCat(11));
         System.out.println(IntroTaskCat(103));
         System.out.println(IntroTaskCat(1));
+
+        System.out.println(PrimalityTest(37));
+        System.out.println(PrimalityTest(122));
+        System.out.println(PrimalityTest(107));
 
     }
     private static boolean Task3Digits (int x){
@@ -58,4 +63,15 @@ public class introTasks {
 
         }
     }
-}
+
+    private static boolean PrimalityTest (int number_for_sqrt){
+        int res=1;
+        int broj= ((int) Math.sqrt(number_for_sqrt)) +1;
+        for (int x=2; x<broj; x+=1){
+            res= res*(number_for_sqrt%x);}
+        return res==0;
+        }
+
+    }
+
+
