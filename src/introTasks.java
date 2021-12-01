@@ -22,9 +22,9 @@ public class introTasks {
         System.out.println(IntroTaskCat(103));
         System.out.println(IntroTaskCat(1));
 
-        System.out.println(PrimalityTest(37));
-        System.out.println(PrimalityTest(122));
-        System.out.println(PrimalityTest(107));
+        System.out.println(primalityTest(37));
+        System.out.println(primalityTest(122));
+        System.out.println(primalityTest(107));
 
     }
     private static boolean Task3Digits (int x){
@@ -64,14 +64,17 @@ public class introTasks {
         }
     }
 
-    private static boolean PrimalityTest (int number_for_sqrt){
-        int res=1;
-        int broj= ((int) Math.sqrt(number_for_sqrt)) +1;
-        for (int x=2; x<broj; x+=1){
-            res= res*(number_for_sqrt%x);}
-        return res==0;
+    private static boolean primalityTest (int numberForSqrt) {
+        int res = 1;
+        int broj = ((int) Math.sqrt(numberForSqrt)) + 1;
+        for (int x = 2; x < broj; x += 1) {
+            return (numberForSqrt % x == 0);
         }
-
+        return (true);
     }
+}
+// не знаю, как по другому....
+
+
 
 
