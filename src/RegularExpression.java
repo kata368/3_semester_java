@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +24,15 @@ public class RegularExpression {
 
         tooMuchSpace("Это строка , у которой зачем-то написаны два пробела перед запятой.");
 
+        replace("Какая-то сине-зеленовая трава");
+
+        cat("Что-то со словом кот, и с повторениями Кот кот");
+        cat("Что-то со словом кот, и с повторениями Кот кот, ну и который для проверки");
+
+        catNotOnly("Что-то со словом кот, и с повторениями Кот кот");
+        catNotOnly("Что-то со словом кот, и с повторениями Кот кот, ну и который для проверки");
+
+        increase("У меня 2 яблока и -4 банана");
     }
 
     public static void mail(String email) {
@@ -57,8 +65,8 @@ public class RegularExpression {
 
         Matcher time =forTime.matcher(sentence);
         while (time.find()){
-            int hours=Integer.valueOf((time.group(1)));
-            int minutes = Integer.valueOf(time.group(2));
+            int hours=Integer.parseInt((time.group(1)));
+            int minutes = Integer.parseInt(time.group(2));
 
             boolean hoursBoolean = (hours>=0 && hours<=23);
             boolean minutesBoolean = (minutes>=0 && minutes<=60);
@@ -69,8 +77,56 @@ public class RegularExpression {
     }
 
     public static void tooMuchSpace (String sentence){
-        System.out.println(sentence.replaceAll(" ,", ","));
+        System.out.println(sentence.replaceAll("\\s,", ","));
     }
+
+    public static void replace(String sentence){
+        System.out.println(sentence.replaceAll("([а-яА-Я]+)(-)([а-яА-Я]+)", "$3$2$1"));
+    }
+
+    public static void cat(String sentence){
+        Pattern forCat = Pattern.compile("\\sкот\\b", Pattern.CASE_INSENSITIVE + Pattern.UNICODE_CASE);
+        Matcher catTest =forCat.matcher(sentence);
+        int i=0;
+
+        while (catTest.find()){
+            i++;
+        }
+        System.out.println(i);
+    }
+
+    public static void catNotOnly(String sentence){
+        Pattern forCat = Pattern.compile("кот([а-я]?)", Pattern.CASE_INSENSITIVE + Pattern.UNICODE_CASE);
+        Matcher catTest =forCat.matcher(sentence);
+        int i=0;
+
+        while (catTest.find()){
+            i++;
+        }
+        System.out.println("Всего найдено "+i);
+
+
+    }
+
+    public static void increase(String sentence){
+        Pattern forIncrease = Pattern.compile("(-)?([0-9]+)");
+        Matcher increaseTest = forIncrease.matcher(sentence);
+        StringBuilder answer = new StringBuilder();
+
+        while(increaseTest.find()){
+            int number = Integer.valueOf(increaseTest.group());
+            int newNumber=number+1;
+
+            String replacement = String.valueOf(newNumber);
+            increaseTest.appendReplacement(answer, replacement);
+
+        }
+        increaseTest.appendTail(answer);
+        String finalText=answer.toString();
+        System.out.println(finalText);
+
+    }
+
 
 
 
