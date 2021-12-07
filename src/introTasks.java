@@ -65,12 +65,11 @@ public class introTasks {
     }
 
     private static boolean primalityTest (int numberForSqrt) {
-        int res = 1;
         int broj = ((int) Math.sqrt(numberForSqrt)) + 1;
         for (int x = 2; x < broj; x += 1) {
             return (numberForSqrt % x == 0);
         }
-        return (true);
+        return true;
     }
 }
 // не знаю, как по другому....

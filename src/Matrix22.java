@@ -27,8 +27,7 @@ public class Matrix22 {
 
         MultidimentionalArrays.printTable1(test.add(new Matrix22(4,4,7,8)));
         MultidimentionalArrays.printTable1(test.mul(new Matrix22(4,4,7,8)));
-        var test2 = new Matrix22(25,17,10,11);
-        MultidimentionalArrays.printTable1(test2.pow(3));
+
 
     }
 
@@ -94,6 +93,17 @@ public class Matrix22 {
 
         }
         return matrix;
+    }
+
+    public static void printTable1(int[][] a){
+        String lines = "";
+        for (int[] line : a){
+            for (int x: line){
+                lines= lines + x +" ";
+            }
+            System.out.println(lines);
+            lines= "";
+        }
     }
 
 

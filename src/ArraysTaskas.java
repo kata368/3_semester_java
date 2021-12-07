@@ -17,6 +17,8 @@ public class ArraysTaskas {
         System.out.println(mean(new int[]{5, 10, 15}));
         System.out.println(mean(new int[]{2, 4, 6}));
         System.out.println(mean(new int[]{87, 15, 71}));
+
+        System.out.println(Arrays.toString(copyShift(new int[]{10, 20, 30,40})));
     }
 
     public static String even(int n) {
@@ -60,6 +62,18 @@ public class ArraysTaskas {
         return ((double)sum) / forMean.length;
 
     }
+
+
+    public static int[] copyShift(int[] a){
+        int [] answer=new int[a.length];
+        answer[0] = a[a.length-1];
+        for (int i=1; i<a.length; i++){
+            answer[i]=a[i-1];
+        }
+        return answer;
+    }
+
+
 }// hasSimilar сравнивиет самого с собой, не знаю, как исправить...
 
 
