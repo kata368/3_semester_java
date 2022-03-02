@@ -63,7 +63,7 @@ public class Drawing {
     public char[][] drawCircle(int centerX, int centerY, int radius, char symbol){
         for (int i=0; i<t.length-1; i++){
             for (int a=0; a <(t[a].length-1); a++){
-                if ((a-centerX)*(a-centerX) + (i-centerY)*(i-centerY)< radius*radius) {
+                if (Math.sqrt((a-centerY)*(a-centerY) + (i-centerX)*(i-centerX))<= radius) {
                     t[i][a]=symbol;
                 }
             }

@@ -27,7 +27,7 @@ public class ExperimentsWithDrawing {
 
         System.out.println();
 
-        test4.drawCircle(5,5,3,'*');
+        test4.drawCircle(5,5,3,' ');
         test4.printTable();
 
 
