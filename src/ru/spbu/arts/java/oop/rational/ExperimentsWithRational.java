@@ -11,32 +11,35 @@ public class ExperimentsWithRational {
         Rational test7 = new Rational(1,6);
         Rational test8 = new Rational(2,15);
 
+        Rational.ONE=new Rational(1);
+        Rational.ZERO=new Rational(0);
+
         //System.out.println(test1); // почему печатает с /? Даже без доп функции....
         //System.out.println(test2);
 
-        test3.toDouble();
-        System.out.println(test3);
+        System.out.println(test3.toDouble());
 
-        test1.addInPlace(test5);
-        System.out.println(test1);
+
+        //test1.addInPlace(test5);
+        //System.out.println(test1);
 
         Rational r1 = test2.add(test5);
         System.out.println(r1);
 
-        test6.subInPlace(test5);
-        System.out.println(test6);
+        //test6.subInPlace(test5);
+        //System.out.println(test6);
 
         Rational r2=test5.sub(test1);
         System.out.println(r2);
 
-        r2.mulInPlace(test7);
-        System.out.println(r2);
+        //r2.mulInPlace(test7);
+        //System.out.println(r2);
 
         Rational r3 = test2.mul(test7);
         System.out.println(r3);
 
-        test8.divInPlace(test7);
-        System.out.println(test8);
+        //test8.divInPlace(test7);
+        //System.out.println(test8);
 
         Rational r4 = test8.div(test7);
         System.out.println(r4);

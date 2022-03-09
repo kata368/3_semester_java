@@ -1,8 +1,10 @@
 package ru.spbu.arts.java.oop.rational;
 
 public class Rational {
-    private int n; //numerator - числитель (gore)
+    private  int n; //numerator - числитель (gore)
     private int d; // denominator - знаменатель (dole)
+    static Rational ONE;
+    static Rational ZERO;
 
 
     Rational (int n, int d){
@@ -12,7 +14,7 @@ public class Rational {
 
     }
 
-    public void simplify(){
+    public  void  simplify(){
         if (d==0){
             System.out.println("Error: dividing with zero"); // почему выводит первым?
         }
@@ -35,6 +37,7 @@ public class Rational {
 
     Rational (int n){
         this.n=n;
+        this.d=1;
     }
 
     public String toString(){
@@ -56,13 +59,13 @@ public class Rational {
         return (double) n/d;
     }
 
-    public void addInPlace(Rational forAdding){ //как вставить объект?
+    /*public void addInPlace(Rational forAdding){
         int dForAdding =d;
         d=forAdding.d*d;
         n =(n*forAdding.d)+(forAdding.n*dForAdding);
         simplify();
 
-    }
+    }*/
 
     public Rational add(Rational forAdding){
         int dForAdding =d;
@@ -73,12 +76,12 @@ public class Rational {
         return answer;
     }
 
-    public void subInPlace(Rational forSub){
+    /*public void subInPlace(Rational forSub){
         int dForSub=d;
         d=forSub.d*d;
         n =(n*forSub.d)-(forSub.n*dForSub);
         simplify();
-    }
+    }*/
 
     public Rational sub(Rational forSub){
         int dForSub=d;
@@ -89,11 +92,11 @@ public class Rational {
         return answer;
     }
 
-    public void mulInPlace(Rational forMul){
+    /*public void mulInPlace(Rational forMul){
         n=n*forMul.n;
         d=d* forMul.d;
         simplify();
-    }
+    }*/
 
     public Rational mul(Rational forMul){
         int newN=n*forMul.n;
@@ -103,11 +106,11 @@ public class Rational {
         return answer;
     }
 
-    public void divInPlace(Rational forDiv){
+    /*public void divInPlace(Rational forDiv){
         n=n* forDiv.d;
         d=d* forDiv.n;
         simplify();
-    }
+    }*/
 
     public Rational div(Rational forDiv){
         int newN=n* forDiv.d;
@@ -115,6 +118,14 @@ public class Rational {
         Rational answer = new Rational(newN, newD);
         answer.simplify();
         return answer;
+    }
+
+    public int getN(){
+        return n;
+    }
+
+    public int getD(){
+        return d;
     }
 
 
