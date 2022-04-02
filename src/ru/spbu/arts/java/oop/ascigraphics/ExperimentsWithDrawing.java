@@ -7,28 +7,28 @@ public class ExperimentsWithDrawing {
         Drawing test3 = new Drawing(8,8,'&');
         Drawing test4 = new Drawing(10,10,'#');
 
-        test1.printTable();
+        test1.print();
         test1.setPoint(3,3,'$');
-        test1.printTable();
+        test1.print();
 
         System.out.println();
 
         test1.drawVerticalLine(2,3,2,'%');
-        test1.printTable();
+        test1.print();
 
         System.out.println();
 
         test2.drawHorizontalLine(1,4,3,'@');
-        test2.printTable();
+        test2.print();
 
         System.out.println();
         test3.drawRectangle(2,2,4,4,'*');
-        test3.printTable();
+        test3.print();
 
         System.out.println();
 
         test4.drawCircle(5,5,3,' ');
-        test4.printTable();
+        test4.print();
 
 
 

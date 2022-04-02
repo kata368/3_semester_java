@@ -1,12 +1,15 @@
 package ru.spbu.arts.java.oop.ascigraphics;
+
+import ru.spbu.arts.java.oop.interfaces.Printable;
+
 import java.util.Arrays;
-public class Drawing {
+public class Drawing implements Printable {
     int row;
     int column;
     char method;
     char [][] t= new char[row][column];
 
-    Drawing(int row, int column, char method){
+    public Drawing(int row, int column, char method){
         this.row=row;
         this.column=column;
         this.method=method;
@@ -18,7 +21,7 @@ public class Drawing {
 
     }
 
-    public void printTable(){
+    public void print(){
         String lines = "";
         for (char[] line : t){
             for (char x: line){
