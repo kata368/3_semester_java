@@ -1,3 +1,5 @@
+package previous;
+
 public class Matrix22 {
     int[][] matrix = new int[2][2];
     int trace;

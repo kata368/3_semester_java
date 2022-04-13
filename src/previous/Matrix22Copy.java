@@ -1,3 +1,5 @@
+package previous;
+
 import java.util.Arrays;
 
 public class Matrix22Copy {

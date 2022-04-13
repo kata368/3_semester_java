@@ -1,4 +1,8 @@
-public class Rotation extends Matrix22Copy{
+package previous;
+
+import previous.Matrix22Copy;
+
+public class Rotation extends Matrix22Copy {
     private double angles;
 
     Rotation (double a){

@@ -1,13 +1,10 @@
 package ru.spbu.arts.java.oop.time;
 
 public class Time {
-    int minutes;
-    int hours;
+    private int minutes;
+    private int hours;
 
-    public static void main(String args[]) {
-    }
-
-    Time(int minutes, int hours){
+    public Time(int minutes, int hours){
         this.minutes=minutes;
         this.hours=hours;
     }

@@ -1,3 +1,5 @@
+package previous;
+
 import java.lang.Math;
 public class introTasks {
     public static void main(String args[]) {
