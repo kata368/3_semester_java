@@ -1,6 +1,7 @@
 package ru.spbu.arts.java.oop.javafx;
 
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -25,8 +27,8 @@ public class CircleTask extends Application {
     Slider forRadius = new Slider(0,100,5);
     Label forCircleColor = new Label("Colour of circle");
     Label forBackgroundColor = new Label("Colour of background");
-    ColorPicker circleColor = new ColorPicker();
-    ColorPicker backgroundColor = new ColorPicker();
+    ColorPicker circleColor = new ColorPicker(Color.MAROON);
+    ColorPicker backgroundColor = new ColorPicker(Color.web("#fff176"));
 
 
 
@@ -42,7 +44,6 @@ public class CircleTask extends Application {
 
     private Parent initInterface(){
         left.setStyle("-fx-background-color: #acb45c");
-        right.setStyle("-fx-background-color: #fff176");
         screen.setStyle("-fx-background-color: green");
 
         screen.add(left, 0,0);
@@ -89,13 +90,16 @@ public class CircleTask extends Application {
 
     private void initInteraction(){
         circle.radiusProperty().bind(forRadius.valueProperty());
-        right.widthProperty().addListener(o-> circle.setCenterX(right.getWidth()/2));
-        left.heightProperty().addListener(o-> circle.setCenterY(right.getHeight()/2));
+        circle.centerYProperty().bind(right.heightProperty().divide(2));
+        circle.centerXProperty().bind(right.widthProperty().divide(2));
+
 
         circle.fillProperty().bind(circleColor.valueProperty());
-        backgroundColor.valueProperty().addListener(o->
-                right.setBackground(new Background(new BackgroundFill(backgroundColor.getValue(),CornerRadii.EMPTY, Insets.EMPTY))));
-        System.out.println(backgroundColor.getValue());
+
+        right.backgroundProperty().bind(Bindings.createObjectBinding(()-> {
+            BackgroundFill fill = new BackgroundFill(backgroundColor.getValue(), CornerRadii.EMPTY, Insets.EMPTY );
+            return new Background(fill);
+        }, backgroundColor.valueProperty()));
 
 
     }
