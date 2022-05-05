@@ -10,11 +10,11 @@ public class Rational {
     Rational (int n, int d){
         this.n=n;
         this.d=d;
-        this.simplify();
+        this.simplifyFixed();
 
     }
 
-    public  void  simplify(){
+    /*private  void  simplify(){ //исправлено в новом simplifyFixed
         if (d==0){
             System.out.println("Error: dividing with zero"); // почему выводит первым?
         }
@@ -33,9 +33,31 @@ public class Rational {
            }
         }
 
+    }*/
+
+    private void simplifyFixed(){
+        int nod;
+        int nN =n;
+        int dD=d;
+        if (d==0){
+            System.out.println("Error: dividing with zero"); // почему выводит первым?
+        }
+        while (nN!=0 && dD!=0){
+            if (nN>dD){
+                nN=nN%dD;
+            } else{
+                dD=dD%nN;
+            }
+        }
+        nod = nN+dD;
+        n/=nod;
+        d/=nod;
+
+
+
     }
 
-    Rational (int n){
+    public Rational (int n){
         this.n=n;
         this.d=1;
     }
@@ -59,20 +81,20 @@ public class Rational {
         return (double) n/d;
     }
 
-    /*public void addInPlace(Rational forAdding){
+    public void addInPlace(Rational forAdding){
         int dForAdding =d;
         d=forAdding.d*d;
         n =(n*forAdding.d)+(forAdding.n*dForAdding);
-        simplify();
+        simplifyFixed();
 
-    }*/
+    }
 
     public Rational add(Rational forAdding){
         int dForAdding =d;
         int newD=forAdding.d*d;
         int newN =(n*forAdding.d)+(forAdding.n*dForAdding);
         Rational answer = new Rational(newN,newD);
-        answer.simplify();
+        answer.simplifyFixed();
         return answer;
     }
 
@@ -80,7 +102,7 @@ public class Rational {
         int dForSub=d;
         d=forSub.d*d;
         n =(n*forSub.d)-(forSub.n*dForSub);
-        simplify();
+        simplifyFixed();
     }*/
 
     public Rational sub(Rational forSub){
@@ -88,35 +110,35 @@ public class Rational {
         int newD=forSub.d*d;
         int newN =(n*forSub.d)-(forSub.n*dForSub);
         Rational answer = new Rational(newN,newD);
-        answer.simplify();
+        answer.simplifyFixed();
         return answer;
     }
 
     /*public void mulInPlace(Rational forMul){
         n=n*forMul.n;
         d=d* forMul.d;
-        simplify();
+        simplifyFixed();
     }*/
 
     public Rational mul(Rational forMul){
         int newN=n*forMul.n;
         int newD=d* forMul.d;
         Rational answer = new Rational(newN, newD);
-        answer.simplify();
+        answer.simplifyFixed();
         return answer;
     }
 
     /*public void divInPlace(Rational forDiv){
         n=n* forDiv.d;
         d=d* forDiv.n;
-        simplify();
+        simplifyFixed();
     }*/
 
     public Rational div(Rational forDiv){
         int newN=n* forDiv.d;
         int newD =d* forDiv.n;
         Rational answer = new Rational(newN, newD);
-        answer.simplify();
+        answer.simplifyFixed();
         return answer;
     }
 
@@ -126,6 +148,16 @@ public class Rational {
 
     public int getD(){
         return d;
+    }
+
+    public void notInRational(int n){
+        Rational answer = ZERO;
+        for (int i =1; i<=n; i++ ){
+            Rational forAdd = new Rational(1,i);//lomi se na 20...
+            answer.addInPlace(forAdd);
+        }
+
+        System.out.println(answer.toDouble());
     }
 
 

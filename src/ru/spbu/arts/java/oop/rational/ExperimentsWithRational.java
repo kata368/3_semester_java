@@ -5,11 +5,12 @@ public class ExperimentsWithRational {
         Rational test1= new Rational(1,24);
         Rational test2 = new Rational(120,336);
         Rational test3 = new Rational(1,2);
-        Rational test4 = new Rational(45, 0);
+        Rational test4 = new Rational(1);
         Rational test5 = new Rational(2,5);
         Rational test6 = new Rational(5,8);
         Rational test7 = new Rational(1,6);
         Rational test8 = new Rational(2,15);
+
 
         Rational.ONE=new Rational(1);
         Rational.ZERO=new Rational(0);
@@ -44,7 +45,12 @@ public class ExperimentsWithRational {
         Rational r4 = test8.div(test7);
         System.out.println(r4);
 
+        System.out.println("----- trying to fix--------");
+       // test4.notInRational(2);
 
+        //test4.notInRational(3);
+
+        test4.notInRational(20);
 
 
     }
