@@ -53,7 +53,7 @@ public class Images extends Application {
         PixelWriter forFourthPainting = fourthPainting.getPixelWriter();
         for (int x=0; x<100; x++) {
             for (int y = 0; y < 100; y++) {
-                if (y > 25 && y < 75 && x>25 && y<75) { //точно только по x?
+                if (y > 25 && y < 75 && x>25 && x<75) { //точно только по x?
                     forFourthPainting.setColor(x, y, Color.BLACK);
                 } else {
                     forFourthPainting.setColor(x, y, Color.WHITE);
@@ -76,27 +76,27 @@ public class Images extends Application {
         ImageView fifth = new ImageView(fifthPainting);
 
         WritableImage sixthPainting = new WritableImage(360,100);
-        PixelWriter forsixthPainting = sixthPainting.getPixelWriter();
+        PixelWriter forSixthPainting = sixthPainting.getPixelWriter();
         for (int x =0; x<360; x++){
             for (int y=0; y<100; y++){
-                forsixthPainting.setColor(x,y, LCH.colorFromLCH(0.5, x, (double)y/100));
+                forSixthPainting.setColor(x,y, LCH.colorFromLCH(0.5, x, (double)y/100));
             }
         }
         ImageView sixth = new ImageView(sixthPainting);
 
-        /*WritableImage seventhPainting = new WritableImage(371, 100);
+        WritableImage seventhPainting = new WritableImage(371, 100);
         PixelWriter forSeventhPainting = seventhPainting.getPixelWriter();
-            for (int x =380; x<750; x++){
-                for (int y =0; y<100; y++){
+        for (int y =0; y<100; y++){
+            for (int x = 380; x<750; x++){
                     double[] transformRGB = TransformWaves.transformWave(x);
-                    Color rainbow = Color.color(transformRGB[0], transformRGB[1] transformRGB[2];
-                    forSeventhPainting.setColor(x,y,rainbow);
+                    Color rainbow = Color.color(transformRGB[0]/255.0,transformRGB[1]/255.0, transformRGB[2]/255.0);
+                    forSeventhPainting.setColor(x-380, y, rainbow);
+                    }
                 }
-            }
 
-        ImageView seventh = new ImageView(seventhPainting);*/
+        ImageView seventh = new ImageView(seventhPainting);
 
         return new FlowPane(first,
-                second, third, fourth, fifth, sixth);
+                second, third, fourth, fifth, sixth, seventh);
     }
 }
